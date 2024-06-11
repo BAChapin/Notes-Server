@@ -1,0 +1,25 @@
+{
+  "name": "notes-api",
+  "version": "1.0.0",
+  "description": "This is the server component to the Notes app as apart of a Udemy course.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BAChapin/Notes-Server.git"
+  },
+  "author": "B.A. Chapin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BAChapin/Notes-Server/issues"
+  },
+  "homepage": "https://github.com/BAChapin/Notes-Server#readme",
+  "dependencies": {
+    "express": "^4.19.2",
+    "fs": "^0.0.1-security",
+    "mongoose": "^8.4.1",
+    "nodemon": "^3.1.3"
+  }
+}

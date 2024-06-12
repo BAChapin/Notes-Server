@@ -9,26 +9,24 @@ const app = express();
 
 app.use(express.json())
 
-app.get('/notes', (req, res) => {
-    fs.readFile(__dirname + '/notes.json', 'utf-8', (err, data) => {
-        if (err) {
-            return console.log(err)
-        }
-
-        res.send(data)
-    })
+app.get('/notes', async (req, res) => {
+    try {
+        const notes = await Note.find({})
+        res.send(notes)
+    } catch (err) {
+        res.status(500).send(err)
+    }
 })
 
-app.post('/notes', (req, res) => {
+app.post('/notes', async (req, res) => {
     const note = new Note(req.body)
 
-    note.save()
-    .then(() => {
+    try {
+        await note.save()
         res.status(200).send(note)
-    })
-    .catch((err) => {
+    } catch (err) {
         res.status(500).send(err)
-    })
+    }
 })
 
 app.listen(3000, () => {
